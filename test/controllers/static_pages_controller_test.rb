@@ -7,7 +7,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get home" do
-    get static_pages_home_url
+    get static_pages_home_url # ルーティングを追加することによって，static_pages_home_urlというRailsヘルパーが使えるようになる
     assert_response :success
     assert_select "title", "Home | #{@base_title}"
   end
@@ -28,5 +28,11 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     get static_pages_contact_url
     assert_response :success
     assert_select "title", "Contact | #{@base_title}"
+  end
+  
+  test "should get root" do
+    get root_url
+    assert_response :success
+    assert_select "title", "Home | #{@base_title}"
   end
 end
