@@ -16,6 +16,12 @@ Rails.application.configure do
 
   # Enable server timing
   config.server_timing = true
+  
+   config.action_mailer.raise_delivery_errors = false
+
+  host = '2648e8f794144a10800bbaa7a42b7d49.vfs.cloud9.ap-northeast-1.amazonaws.com' # ここをコピペすると失敗します。自分の環境のホストに変えてください。
+  # クラウドIDEの場合は以下をお使いください
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
